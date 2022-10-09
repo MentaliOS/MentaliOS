@@ -18,10 +18,11 @@ start:
     mov dword [0xb8004], 0x0C6e
     mov dword [0xb8006], 0x0C74
     mov dword [0xb8008], 0x0C61
-    mov dword [0xb8010], 0x0C6c
-    mov dword [0xb8012], 0x0c69
-    mov dword [0xb8014], 0x044f
-    mov dword [0xb8016], 0x0453
+    mov dword [0xb800a], 0x0C6c
+    mov dword [0xb800c], 0x0C69
+    mov dword [0xb800e], 0x044f
+    mov dword [0xb8010], 0x0453
+
 
     hlt
 
@@ -139,9 +140,9 @@ enable_paging:
 ; Prints `ERR: ` and the given error code to screen and hangs.
 ; parameter: error code (in ascii) in al
 error:
-    mov dword [0xb8000], 0x4f524f45
-    mov dword [0xb8004], 0x4f3a4f52
-    mov dword [0xb8008], 0x4f204f20
+    mov dword [0xb8000], 0x0c520c45
+    mov dword [0xb8004], 0x0c3a0c52
+    mov dword [0xb8008], 0x0c200c20
     mov byte  [0xb800a], al
     hlt
 
