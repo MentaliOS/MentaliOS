@@ -43,12 +43,19 @@ OUT_ISO = MentaliOS-$(VERSION)-$(ARCH).iso
 
 kernel.elf: $(OBJECTS)
 	ld $(LDFLAGS) $(OBJECTS) -o kernel.elf
+kernel-dev.elf: $(OBJECTS)
+	ld $(LDFLAGS) $(OBJECTS) -o kernel-dev.elf
+kernel-shell.elf: $(OBJECTS)
+	ld $(LDFLAGS) $(OBJECTS) -o kernel-shell.elf
 
-os: kernel.elf
+os: kernel.elf kernel-dev.elf kernel-shell.elf
 	mkdir -p iso/boot/grub
 	cp kernel.elf iso/boot/kernel.elf
+	cp kernel-dev.elf iso/boot/kernel-dev.elf
+	cp kernel-dev.elf iso/boot/kernel-shell.elf
 	cp stage2_eltorito iso/boot/grub/
-	cp menu.lst iso/boot/grub
+	cp *.lst iso/boot/grub
+	cp win.gz iso/boot/grub
 	genisoimage -R                              \
 				-b boot/grub/stage2_eltorito    \
 				-no-emul-boot                   \
@@ -65,6 +72,6 @@ run: os
 
 clean:
 	rm -f $(OBJECTS) $(DEPENDS) 
-	rm kernel.elf
+	rm *.elf
 	rm -rf iso
 	rm $(OUT_ISO)

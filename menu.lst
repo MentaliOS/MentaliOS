@@ -2,7 +2,32 @@
 #   All rights reserved
 
 default=0
-timeout=0
+timeout=5
+
+gfxmenu /boot/grub/win.gz
+
+color white/black red/black
+
+password tetrolabs
 
 title MentaliOS
 kernel /boot/kernel.elf
+
+title Reboot
+reboot
+
+title Poweroff
+halt
+
+title
+configfile menu.lst
+title
+configfile menu.lst
+title
+configfile menu.lst
+
+
+
+title Developer tools
+#lock
+configfile /boot/grub/devt.lst
