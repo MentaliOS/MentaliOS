@@ -16,8 +16,8 @@ DEPS = -MMD -MF $(@:.o=.d)
 all: kernel.elf os run
 
 # Kernel code
-kernel_SRC  = start.S
-kernel_SRC += kmain.c
+kernel_SRC  = kernel/start.S
+kernel_SRC += kernel/kmain.c
 
 # Devices code.
 devices_SRC = devices/vga.c
