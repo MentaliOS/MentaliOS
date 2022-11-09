@@ -18,6 +18,7 @@ all: kernel.elf os run
 # Kernel code
 kernel_SRC  = kernel/start.S
 kernel_SRC += kernel/kmain.c
+kernel_SRC += kernel/init/init.c
 
 # Devices code.
 devices_SRC = devices/vga.c
@@ -27,6 +28,8 @@ lib_SRC  = lib/stdio.c
 lib_SRC += lib/string.c
 lib_SRC += lib/arithmetic.c
 lib_SRC += lib/kernel/console.c
+lib_SRC += lib/api/input.c
+lib_SRC += lib/api/error.c
 
 SUBDIRS = kernel devices lib
 SOURCES = $(foreach dir,$(SUBDIRS),$($(dir)_SRC))

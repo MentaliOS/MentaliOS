@@ -1,0 +1,15 @@
+color red/cyan cyan/red
+
+title MentaliOS - Developer mode
+echo Entering Developer mode
+kernel /boot/kernel-dev.elf
+
+title MentaliOS - Shell mode
+echo Entering Developer mode
+kernel /boot/kernel-dev.elf
+
+title Shell mode
+configfile /boot/grub/shell.lst
+
+title Return
+configfile /boot/grub/menu.lst

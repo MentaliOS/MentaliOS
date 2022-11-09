@@ -2,7 +2,7 @@
 #   All rights reserved
 
 default=0
-timeout=0
+timeout=5
 
 gfxmenu /boot/grub/win.gz
 

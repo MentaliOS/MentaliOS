@@ -9,14 +9,19 @@
 // #include "memory.h"
 
 #include "../devices/vga.h"
-
+#include "init/init.h"
 #include "sysinfo.h"
+#include <api/input.h>
+
 
 
 
 int main(void) {
 
-    printf("%s %s\n\n\n\n", OS_NAME, OS_VERSION);
+    start_init();
 
-    printf("Running initc...\n");
+    printf("%s %s\n\n", OS_NAME, OS_VERSION);
+
+    get_input();
+    
 } 
